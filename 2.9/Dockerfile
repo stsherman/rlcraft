@@ -13,16 +13,16 @@ WORKDIR "/rlcraft"
 COPY libraries.tar.xz .
 COPY forge-1.12.2-14.23.5.2860.jar .
 COPY minecraft_server.1.12.2.jar .
-COPY RLCraft+Server+Pack+1.12.2+-+Release+v2.9.tar.xz .
 COPY entrypoint.sh .
 
-RUN tar -xf libraries.tar.xz && tar -xf RLCraft+Server+Pack+1.12.2+-+Release+v2.9.tar.xz
+RUN tar -xf libraries.tar.xz
 
 RUN echo "eula=true" > eula.txt
 
 RUN timeout 5s java -jar minecraft_server.1.12.2.jar || true
 
-RUN cp -r RLCraft+Server+Pack+1.12.2+-+Release+v2.9/* .
+COPY RLCraft+Server+Pack+1.12.2+-+Release+v2.9 .
+# RUN cp -r RLCraft+Server+Pack+1.12.2+-+Release+v2.9/* .
 
 RUN chmod +x entrypoint.sh
 
