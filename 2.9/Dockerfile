@@ -26,4 +26,6 @@ COPY RLCraft+Server+Pack+1.12.2+-+Release+v2.9 .
 
 RUN chmod +x entrypoint.sh
 
+VOLUME ["/rlcraft"]
+
 CMD ["/rlcraft/entrypoint.sh"]
