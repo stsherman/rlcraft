@@ -1,6 +1,6 @@
 # rlcraft
 
-Simple Docker based server for RLCraft version 2.9. I had hoped to avoid including the RLCraft Server Pack in this repository, but I didn't want to spend the time figuring out how to download it from curse forge using curl or wget. I also couldn't archive the files due to GitHub's file size limit.
+Simple Docker based server for RLCraft version 2.9. By using this Docker image, you are indicating your agreement to Minecraft's [EULA](https://account.mojang.com/documents/minecraft_eula).
 
 ## Building
 If you have make installed, simply run `make build` to build the image locally.
