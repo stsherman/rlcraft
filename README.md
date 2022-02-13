@@ -2,6 +2,8 @@
 
 Simple Docker based server for RLCraft version 2.9. By using this Docker image, you are indicating your agreement to Minecraft's [EULA](https://account.mojang.com/documents/minecraft_eula).
 
+This repository uses [git-lfs](https://git-lfs.github.com/) to manage the RLCraft Server Pack since it is larger than the max file size allowed by git.
+
 ## Building
 If you have make installed, simply run `make build` to build the image locally.
 
