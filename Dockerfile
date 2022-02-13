@@ -1,4 +1,4 @@
-FROM openjdk:8-jre
+FROM openjdk:8-jre-slim
 
 RUN apt-get update && \
     apt-get -y install xz-utils bzip2 && \
