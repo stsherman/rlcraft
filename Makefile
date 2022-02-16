@@ -7,6 +7,8 @@ build:
 run:
 	mkdir -p $(MOUNT_PATH)
 	docker run -p 25565:25565 \
+		-it \
+		-e GID=`cat /etc/group | grep docker | cut -d: -f3` \
 		--mount 'type=volume,src=$(VOLUME_NAME),dst=/rlcraft,volume-driver=local,volume-opt=o=bind,volume-opt=device=$(MOUNT_PATH),volume-opt=type=none' \
 		rlcraft:2.9
 
