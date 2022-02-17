@@ -1,3 +1,11 @@
-rlcraft
-.idea
-backups
+*
+
+!/Dockerfile
+!/entrypoint.sh
+!/*.jar
+!/*.tar.xz
+!/Makefile
+!/README.md
+!/.dockerignore
+!/.gitattributes
+!/.gitignore
