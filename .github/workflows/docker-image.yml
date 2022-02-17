@@ -2,14 +2,29 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
+    branches: 
+      - master
+      - "2.9"
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
+      - "2.9"
 
 jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      -
+        name: Set tag name based on branch
+        run: |
+          if [[ ${GITHUB_REF#refs/heads/} -eq "master" ]]; then
+            echo "TAG_NAME=latest" >> $GITHUB_ENV 
+          else
+            echo "TAG_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+          fi
+      -
+        name: Check tag name
+        run: echo "${{ env.TAG_NAME }}"
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -27,4 +42,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: stsherman/rlcraft:latest
+          tags: stsherman/rlcraft:${{ env.TAG_NAME }}
