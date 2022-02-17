@@ -13,7 +13,6 @@ COPY libraries.tar.xz .
 COPY forge-1.12.2-14.23.5.2860.jar .
 COPY minecraft_server.1.12.2.jar .
 COPY RLCraft+Server+Pack+1.12.2+-+Release+v2.9.tar.xz .
-# COPY entrypoint.sh .
 
 RUN tar -xf libraries.tar.xz && rm libraries.tar.xz
 
