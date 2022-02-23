@@ -23,12 +23,16 @@ RUN timeout 5s java -jar minecraft_server.1.12.2.jar || true
 RUN unzip -o RLCraft+Server+Pack+1.12.2+-+Release+v2.9.1c.zip && \
   rm RLCraft+Server+Pack+1.12.2+-+Release+v2.9.1c.zip
 
+RUN curl -L --output OptiFine_1.12.2_HD_U_G5.jar \
+  https://optifine.net/downloadx\?f\=OptiFine_1.12.2_HD_U_G5.jar\&x\=36b6e0afcff06e04bcfe50f4ece98972 && \
+  mv OptiFine_1.12.2_HD_U_G5.jar mods
+
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
 VOLUME ["/rlcraft"]
 
 # Default JVM Options (Set default memory limit to 8G)
-ENV JAVA_TOOL_OPTIONS "-Xmx8G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M"
+ENV JAVA_TOOL_OPTIONS "-Xmx8G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:-UseAdaptiveSizePolicy -Xmn128M"
 
 CMD ["/rlcraft/entrypoint.sh"]
