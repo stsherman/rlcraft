@@ -7,3 +7,4 @@
 !/.dockerignore
 !/.gitattributes
 !/.gitignore
+!/backup.sh
