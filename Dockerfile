@@ -23,9 +23,9 @@ RUN timeout 5s java -jar minecraft_server.1.12.2.jar || true
 RUN unzip -o RLCraft+Server+Pack+1.12.2+-+Release+v2.9.1c.zip && \
   rm RLCraft+Server+Pack+1.12.2+-+Release+v2.9.1c.zip
 
-RUN curl -L --output OptiFine_1.12.2_HD_U_G5.jar \
-  https://optifine.net/downloadx\?f\=OptiFine_1.12.2_HD_U_G5.jar\&x\=36b6e0afcff06e04bcfe50f4ece98972 && \
-  mv OptiFine_1.12.2_HD_U_G5.jar mods
+RUN curl -L --output Morpheus-1.12.2-3.5.106.jar \
+  https://media.forgecdn.net/files/2664/449/Morpheus-1.12.2-3.5.106.jar && \
+  mv Morpheus-1.12.2-3.5.106.jar mods
 
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
