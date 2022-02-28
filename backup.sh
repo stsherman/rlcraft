@@ -9,6 +9,8 @@
 ## whitelist.json
 ### Essentially *.json
 
+## $(date "+%Y%m%d-%H%M%S")-rlcraft
+
 
 # Script should allow backing up and restoring from backups
 
@@ -29,3 +31,14 @@
 # TODO
 ## Figure out how to avoid issues with the session.lock
 ## Figure out issues with sending server commands programmatically
+
+# backup
+
+mkdir -p Backups
+tar -czvf Backups/$(date "+%Y%m%d-%H%M%S")-rlcraft.tar.gz \
+  ./World \
+  ./banned-ips.json \
+  ./banned-players.json \
+  ./ops.json \
+  ./server.properties \
+  ./whitelist.json

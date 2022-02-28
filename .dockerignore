@@ -3,3 +3,4 @@
 
 # Include only necessary files
 !/entrypoint.sh
+!/backup.sh

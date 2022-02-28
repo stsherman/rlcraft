@@ -30,6 +30,9 @@ RUN curl -L --output Morpheus-1.12.2-3.5.106.jar \
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
+COPY backup.sh .
+RUN chmod +x backup.sh
+
 VOLUME ["/rlcraft"]
 
 # Default JVM Options (Set default memory limit to 8G)
